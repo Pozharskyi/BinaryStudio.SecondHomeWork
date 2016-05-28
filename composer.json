@@ -1,0 +1,19 @@
+{
+  "name": "Pozharskyi/Elevator",
+  "description": "Second homework",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Pozharskyi Ivan",
+      "email": "Pozharskyi@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Controller\\": "src/Controller",
+      "Model\\":"src/Model"
+
+    }
+  }
+}
