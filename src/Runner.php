@@ -9,7 +9,7 @@ class Runner
 {
     public static function run()
     {
-        $controller = new Controller(new Elevator());
+        $controller = new Controller(Elevator::getInstance());
         $controller->processUser();
     }
 }

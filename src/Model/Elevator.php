@@ -14,18 +14,41 @@ class Elevator
     const MAX_PEOPLE = 4;
     const MIN_PEOPLE = 0;
 
+    private static $_instance = null;
     private $currentFloor;
     private $numberOfPeople;
 
     /**
      * Elevator constructor.
+     * prevent instance via "new"
      */
-    public function __construct()
+    private function __construct()
     {
         $this->currentFloor = self::MIN_FLOOR;
         $this->numberOfPeople = 0;
     }
 
+    /**
+     * prevent the instance for being cloned
+     */
+    private function __clone()
+    {
+    }
+
+    /**
+     * prevent the instance for being unserialized
+     */
+    private function __wakeup()
+    {
+    }
+
+    static public function getInstance()
+    {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
 
     /**
      * @return int
