@@ -6,6 +6,9 @@ namespace Model;
 
 class Elevator
 {
+    /**
+     * Limits
+     */
     const MAX_FLOOR = 9;
     const MIN_FLOOR = 1;
     const MAX_PEOPLE = 4;
@@ -34,7 +37,7 @@ class Elevator
 
     /**
      * @param int $currentFloor
-     * @return boolean
+     * @return bool
      */
     public function setCurrentFloor($currentFloor)
     {
@@ -46,7 +49,7 @@ class Elevator
     }
 
     /**
-     * @return int
+     * @return int number of people in the elevator
      */
     public function getNumberOfPeople()
     {
@@ -55,7 +58,7 @@ class Elevator
 
     /**
      * @param int $numberOfPeople
-     * @return boolean
+     * @return bool
      */
     public function setNumberOfPeople($numberOfPeople)
     {

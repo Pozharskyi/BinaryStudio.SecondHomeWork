@@ -19,6 +19,11 @@ class SendToFloorCommand implements Command
         $this->elevator = $elevator;
     }
 
+    /**
+     * move elevator to the chosen floor
+     * @param int $floor
+     * @return string
+     */
     public function execute($floor)
     {
         if ($this->elevator->setCurrentFloor($floor) == false) {

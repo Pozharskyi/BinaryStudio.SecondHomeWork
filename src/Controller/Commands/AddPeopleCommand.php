@@ -19,6 +19,11 @@ class AddPeopleCommand implements Command
         $this->elevator = $elevator;
     }
 
+    /**
+     * add new people in the elevator
+     * @param int $numberOfPeople
+     * @return string
+     */
     public function execute($numberOfPeople)
     {
         $allPeople = $this->elevator->getNumberOfPeople() + $numberOfPeople;

@@ -18,6 +18,11 @@ class GetCurrentStateCommand implements Command
         $this->elevator = $elevator;
     }
 
+    /**
+     * get info about floor and amount of people in the elevator
+     * @param int $number
+     * @return string
+     */
     public function execute($number)
     {
         $currentFloor = $this->elevator->getCurrentFloor();

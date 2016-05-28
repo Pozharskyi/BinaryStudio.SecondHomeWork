@@ -19,11 +19,16 @@ class RemovePeopleCommand implements Command
         $this->elevator = $elevator;
     }
 
+    /**
+     * remove people from the elevator
+     * @param int $numberOfPeople
+     * @return string
+     */
     public function execute($numberOfPeople)
     {
         $peopleLeft = $this->elevator->getNumberOfPeople() - $numberOfPeople;
         if($this->elevator->setNumberOfPeople($peopleLeft) == false){
-            return "Sorry, there is no so many people. Cann't execute this command." . PHP_EOL;
+            return "Sorry, there is no so many people. Can not execute this command." . PHP_EOL;
         }
         return "Command has executed successfully" . PHP_EOL;
     }

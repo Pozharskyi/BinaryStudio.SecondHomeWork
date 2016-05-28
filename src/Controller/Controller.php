@@ -13,14 +13,14 @@ use Controller\Commands\SendToFloorCommand;
 
 class Controller
 {
-    const EMPTY_PARAMETER = -1;
+    const EMPTY_PARAMETER = -1;     // need fake parameter to passing to commands without parameter
     protected $elevator;
     protected $registry;
 
     /**
      * Controller constructor.
      * @param Elevator $elevator
-     * 
+     *
      */
     public function __construct(Elevator $elevator)
     {
@@ -29,13 +29,17 @@ class Controller
         $this->registryCommands($elevator);
     }
 
+    /*
+     * main method for communicate with user
+     * read and processed user input
+     */
     public function processUser()
     {
         echo $this->registry->getCommand("getHelp")->execute(self::EMPTY_PARAMETER);
         while (true) {
 
             $line = trim(fgets(STDIN));
-            $input = preg_split("/[\s,]+/", $line);
+            $input = preg_split("/[\s,]+/", $line);     //split user input to command and parameter if it exist
 
             if (!$this->isInputValid($input)) {
                 echo "Wrong command. Try again please" . PHP_EOL;
@@ -53,6 +57,10 @@ class Controller
         echo "Thank you for using our elevator :)" . PHP_EOL;
     }
 
+    /**
+     * @param String[] $input
+     * @return bool, true if user input correct
+     */
     private function isInputValid($input)
     {
         if (($input[0] == "getHelp" || $input[0] == "getCurrentState" || $input[0] == "exit") && (count($input) == 1)) {
@@ -66,6 +74,7 @@ class Controller
 
     /**
      * @param Elevator $elevator
+     * register all available commands
      */
     private function registryCommands(Elevator $elevator)
     {

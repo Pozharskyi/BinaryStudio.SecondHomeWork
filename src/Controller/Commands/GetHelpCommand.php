@@ -6,7 +6,11 @@ namespace Controller\Commands;
 
 class GetHelpCommand implements Command
 {
-
+    /**
+     * method  get info about programs commands
+     * @param $number, empty parameter - not using it
+     * @return string
+     */
     public function execute($number)
     {
         return "-------------------------------------------------------------------" . PHP_EOL .
